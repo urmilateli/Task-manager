@@ -1,0 +1,58 @@
+body {
+    background-color: #f4f7f6;        
+    color: #333333;                    
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark {
+  background-color: #1a1a2e;
+  color: #ffffff;
+}
+
+
+.container, .task-box, .form-container {
+    background-color: #ffffff;         
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+}
+
+body.dark .container,
+body.dark .task-box,
+body.dark .form-container {
+    background-color: #16213e;        
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);  
+}
+
+.pending-tasks {
+    background-color: #ffebee;        
+}
+body.dark .pending-tasks {
+    background-color: #4a2529;         
+}
+
+.completed-tasks {
+    background-color: #e8f5e9;     
+}
+body.dark .completed-tasks {
+    background-color: #223d24;         
+}
+
+.button-accent {
+    background-color: #007bff;        
+    color: white;
+}
+body.dark .button-accent {
+    background-color: #03dac6;        
+    color: black;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}

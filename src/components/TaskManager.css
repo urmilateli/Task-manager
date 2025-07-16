@@ -1,0 +1,56 @@
+.header {
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #cccccc
+}
+
+.header-controls { display: flex; gap: 15px; }
+
+.header-controls button {
+    padding: 8px 15px;
+    cursor: pointer;
+    border: 2px solid #060606;
+    background: transparent;
+    border-radius: 5px;
+    transition: all 0.2s;
+}
+.header-controls button:hover {
+    background-color: rgb(100, 100, 151);
+}
+
+.theme-toggle { 
+    font-size: 1.2rem; 
+    padding: 4px 10px;
+}
+
+.task-manager-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.floating-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    color: white;
+    background-color: blue;
+    border: none;
+    border-radius: 50%;
+    font-size: 30px;
+    line-height: 60px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+.floating-btn:hover { transform: scale(1.1); }
+
+@media (max-width: 768px) {
+    .task-manager-container { flex-direction: column; }
+}

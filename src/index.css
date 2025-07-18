@@ -1,58 +1,62 @@
-body {
-    background-color: #f4f7f6;        
-    color: #333333;                    
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    transition: background-color 0.3s, color 0.3s;
+:root {
+  --primary-bg: #f0f2f5;
+  --secondary-bg: #ffffff;
+  --header-bg: #ffffff;
+  --card-bg: #ffffff;
+  --text-primary: #050505;
+  --text-secondary: #65676b;
+  --accent-color: #1b74e4;
+  --accent-hover: #1662c0;
+  --border-color: #ced0d4;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --pending-section-bg: #fffbe6;
+  --completed-section-bg: #e6f7ff;
+  --delete-btn-bg: #e74c3c;
+  --edit-btn-bg: #f39c12;
+  --complete-btn-bg: #2ecc71;
+  --input-bg: #f0f2f5;
 }
 
 body.dark {
-  background-color: #1a1a2e;
-  color: #ffffff;
-}
-
-
-.container, .task-box, .form-container {
-    background-color: #ffffff;         
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
-}
-
-body.dark .container,
-body.dark .task-box,
-body.dark .form-container {
-    background-color: #16213e;        
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);  
-}
-
-.pending-tasks {
-    background-color: #ffebee;        
-}
-body.dark .pending-tasks {
-    background-color: #4a2529;         
-}
-
-.completed-tasks {
-    background-color: #e8f5e9;     
-}
-body.dark .completed-tasks {
-    background-color: #223d24;         
-}
-
-.button-accent {
-    background-color: #007bff;        
-    color: white;
-}
-body.dark .button-accent {
-    background-color: #03dac6;        
-    color: black;
+  /* Dark Theme */
+  --primary-bg: #18191a;
+  --secondary-bg: #242526;
+  --header-bg: #242526;
+  --card-bg: #b4c6d8;
+  --text-primary: #404e79;
+  --text-secondary: #b0b3b8;
+  --accent-color: #2e89ff;
+  --accent-hover: #4a9aff;
+  --border-color: #3e4042;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --pending-section-bg: #4a3d0a;
+  --completed-section-bg: #00376b;
+  --delete-btn-bg: #c0392b;
+  --edit-btn-bg: #d35400;
+  --complete-btn-bg: #27ae60;
+  --input-bg: #3a3b3c;
 }
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: red;
+  color: var(--text-primary);
+  transition: background-color 0.3s, color 0.3s;
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.95); }
-    to { opacity: 1; transform: scale(1); }
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

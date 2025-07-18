@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Auth from './components/Auth';
 import TaskManager from './components/TaskManager';
-import './index.css';
 import './App.css';
 
 function App() {
@@ -11,42 +10,39 @@ function App() {
 
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem('user'));
-    if (storedUser) setUser(storedUser);
-
-    const storedTasks = JSON.parse(localStorage.getItem('tasks'));
-    if (storedTasks) setTasks(storedTasks);
-
-    const storedTheme = localStorage.getItem('theme');
-    if (storedTheme) setTheme(storedTheme);
+    if (storedUser) {
+      setUser(storedUser);
+      const storedTasks = JSON.parse(localStorage.getItem('tasks'));
+      if (storedTasks) setTasks(storedTasks);
+    }
+    
+    const storedTheme = localStorage.getItem('theme') || 'light';
+    setTheme(storedTheme);
   }, []);
 
   useEffect(() => {
-    if (user) localStorage.setItem('user', JSON.stringify(user));
-    else localStorage.removeItem('user');
-  }, [user]);
-
-  useEffect(() => {
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-  }, [tasks]);
-
-  useEffect(() => {
+    document.body.className = theme;
     localStorage.setItem('theme', theme);
   }, [theme]);
-
+  
   useEffect(() => {
-    if (theme === 'dark') {
-      document.body.classList.add('dark');
-    } else {
-      document.body.classList.remove('dark');
+    if (user) {
+      localStorage.setItem('user', JSON.stringify(user));
+      localStorage.setItem('tasks', JSON.stringify(tasks));
     }
-  }, [theme]);
+  }, [user, tasks]);
 
-  const handleLogin = (userData) => setUser(userData);
+  const handleLogin = (userData) => {
+    setUser(userData);
+  };
+
   const handleLogout = () => {
     setUser(null);
-    setTheme('light'); 
-    document.body.classList.remove('dark'); 
-    localStorage.removeItem('theme'); 
+    setTasks([]);
+    setTheme('light');
+    localStorage.removeItem('user');
+    localStorage.removeItem('tasks');
+    localStorage.removeItem('theme');
   };
 
   const handleAddTask = (task) => {
@@ -58,15 +54,17 @@ function App() {
   };
 
   const handleDeleteTask = (taskId) => {
-    if (window.confirm('You want to delete this task.')) {
+    if (window.confirm('Are you sure you want to delete this task?')) {
       setTasks(tasks.filter((task) => task.id !== taskId));
     }
   };
 
   const handleCompleteTask = (taskId) => {
-    setTasks(tasks.map((task) =>
-      task.id === taskId ? { ...task, status: 'completed' } : task
-    ));
+    setTasks(
+      tasks.map((task) =>
+        task.id === taskId ? { ...task, status: 'completed' } : task
+      )
+    );
   };
 
   const toggleTheme = () => {

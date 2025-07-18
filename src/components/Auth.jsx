@@ -16,12 +16,12 @@ const Auth = ({ onLogin }) => {
     return (
         <div className="auth-view">
         <div className="form-container">
-            <h1>Login</h1>
+            <h1>Signup</h1>
             <form className="auth-form" onSubmit={handleSubmit}>
-            <input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} required />
-            <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-            <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-            <button type="submit">Login</button>
+            <input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} required autoComplete="off" />
+            <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required autoComplete="new-password" />
+            <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required autoComplete="new-password" />
+            <button type="submit">signup</button>
             </form>
         </div>
         </div>
